@@ -1,0 +1,23 @@
+# 導覽列。改順序或改名字，只要動這個檔案。
+# 編號會自動生成（01, 02, 03…）
+
+- name: About
+  url: /
+
+- name: Research
+  url: /research/
+
+- name: Publications
+  url: /publications/
+
+- name: Projects
+  url: /projects/
+
+- name: Teaching
+  url: /teaching/
+
+- name: CV
+  url: /cv/
+
+- name: Blog
+  url: /blog/
