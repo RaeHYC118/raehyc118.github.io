@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>許芸婕 Yun-Chieh (Rae) Hsu｜腦機介面研究</title>
-<meta name="description" content="許芸婕，成功大學物理學系。研究生物物理、腦機介面、生理訊號分析。">
-<!-- ▲▲ ▲▲ -->
+<title>Yun-Chieh (Rae) Hsu 許芸婕｜Brain-Computer Interfaces</title>
+<meta name="description" content="Yun-Chieh Hsu — Research Assistant at the Brain-Computer Interface Lab, CITI, Academia Sinica. EEG decoding, SSVEP, motor imagery, and the biophysics of neural signals.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +17,8 @@
     --ink:#16181D;
     --ink-soft:#5C6068;
     --rule:#DEDCD6;
-    --accent:#2F5F63;        /* 研究相關的深青 */
-    --warm:#A86B33;          /* 只用在「研究之外」那一區 */
+    --accent:#2F5F63;
+    --warm:#A86B33;
     --serif:"Source Serif 4","Noto Serif TC",Georgia,serif;
     --sans:"IBM Plex Sans","Noto Sans TC",system-ui,sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,monospace;
@@ -40,64 +39,82 @@
 
   .wrap{
     max-width:1080px; margin:0 auto; padding:0 32px;
-    display:grid; grid-template-columns:260px 1fr; gap:72px;
-    align-items:start;
+    display:grid; grid-template-columns:260px 1fr; gap:72px; align-items:start;
   }
 
-  /* ── 左側固定欄 ── */
+  /* ── 左欄 ── */
   .rail{position:sticky; top:0; padding:72px 0; height:100vh; display:flex; flex-direction:column}
   .name{font-family:var(--serif); font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.01em}
-  .name .en{display:block; font-size:17px; font-weight:400; color:var(--ink-soft); letter-spacing:.04em; margin-top:6px}
-  .affil{font-size:14px; color:var(--ink-soft); margin-top:18px; line-height:1.5}
+  .name .zh{display:block; font-size:17px; font-weight:400; color:var(--ink-soft); letter-spacing:.12em; margin-top:8px}
+  .affil{font-size:14px; color:var(--ink-soft); margin-top:20px; line-height:1.55}
+  .affil a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule)}
+  .affil a:hover{color:var(--ink); border-bottom-color:var(--ink)}
 
   nav{margin-top:40px}
   nav a{
-    display:flex; align-items:baseline; gap:12px;
-    text-decoration:none; padding:7px 0;
-    font-size:14px; color:var(--ink-soft);
+    position:relative; display:flex; align-items:baseline; gap:12px;
+    text-decoration:none; padding:7px 0; font-size:14px; color:var(--ink-soft);
     transition:color .18s ease;
   }
   nav a .num{font-family:var(--mono); font-size:11px; color:var(--rule); transition:color .18s ease}
   nav a:hover,nav a.active{color:var(--ink)}
   nav a.active .num{color:var(--accent)}
-  nav a.active::before{content:""; position:absolute; left:-16px; width:2px; height:18px; background:var(--accent)}
-  nav a{position:relative}
+  nav a.active::before{content:""; position:absolute; left:-16px; top:9px; width:2px; height:18px; background:var(--accent)}
 
   .rail-foot{margin-top:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
 
-  /* ── 右側內容 ── */
+  /* ── 右欄 ── */
   main{padding:72px 0 140px}
-  section{padding-bottom:72px; margin-bottom:72px; border-bottom:1px solid var(--rule)}
-  section:last-child{border-bottom:none}
+  section{padding-bottom:68px; margin-bottom:68px; border-bottom:1px solid var(--rule)}
+  section:last-child{border-bottom:none; margin-bottom:0}
 
   .eyebrow{
     font-family:var(--mono); font-size:11px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-soft); margin-bottom:22px;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:24px;
   }
 
-  /* Hero：一句話講清楚你研究什麼 */
-  .lede{font-family:var(--serif); font-size:27px; line-height:1.45; letter-spacing:-.005em; max-width:34em}
-  .lede em{font-style:normal; box-shadow:inset 0 -.42em 0 rgba(47,95,99,.13)}
-  .hero-note{margin-top:26px; color:var(--ink-soft); max-width:36em; font-size:15px}
+  .lede{font-family:var(--serif); font-size:26px; line-height:1.48; letter-spacing:-.005em; max-width:33em}
+  .lede em{font-style:normal; box-shadow:inset 0 -.42em 0 rgba(47,95,99,.14)}
+  .hero-note{margin-top:26px; color:var(--ink-soft); max-width:37em; font-size:15px}
 
-  h2{font-family:var(--serif); font-size:21px; font-weight:600; margin-bottom:20px}
-  p{max-width:36em; margin-bottom:14px}
+  h2{font-family:var(--serif); font-size:20px; font-weight:600; margin-bottom:14px}
+  .thread{padding-top:30px; margin-top:30px; border-top:1px solid var(--rule)}
+  .thread:first-of-type{padding-top:0; margin-top:0; border-top:none}
+  .tag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--accent); margin-bottom:7px}
+  p{max-width:37em; margin-bottom:14px}
   p:last-child{margin-bottom:0}
 
-  /* 論文列表：左邊 mono 年份溝槽 */
+  /* 學歷 / 經歷 */
+  .row{display:grid; grid-template-columns:118px 1fr; gap:20px; padding:14px 0; border-top:1px solid var(--rule)}
+  .row:first-of-type{border-top:none; padding-top:0}
+  .row .when{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:4px}
+  .row .what{font-size:15.5px}
+  .row .where{font-size:13.5px; color:var(--ink-soft); margin-top:2px}
+
+  /* 發表 */
   .pub{display:grid; grid-template-columns:56px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--rule)}
   .pub:first-of-type{border-top:none; padding-top:0}
   .pub .yr{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:5px}
-  .pub .t{font-family:var(--serif); font-size:17px; line-height:1.4; margin-bottom:5px}
+  .pub .t{font-family:var(--serif); font-size:17px; line-height:1.42; margin-bottom:5px}
   .pub .meta{font-size:13.5px; color:var(--ink-soft)}
   .pub .meta .venue{font-style:italic}
   .pub .meta strong{font-weight:500; color:var(--ink)}
-  .links{margin-top:8px; display:flex; gap:14px; flex-wrap:wrap}
+  .status{
+    font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--ink-soft); border:1px solid var(--rule); padding:1px 6px; margin-left:6px; white-space:nowrap;
+  }
+  .links{margin-top:9px; display:flex; gap:14px; flex-wrap:wrap}
   .links a{
     font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
     color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px;
   }
   .links a:hover{border-bottom-color:var(--accent)}
+
+  .group{
+    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--ink); margin:44px 0 18px; padding-bottom:7px; border-bottom:1px solid var(--ink);
+  }
+  .group:first-of-type{margin-top:0}
 
   /* 專案 */
   .proj{padding:18px 0; border-top:1px solid var(--rule)}
@@ -105,31 +122,28 @@
   .proj h3{font-family:var(--serif); font-size:17px; font-weight:600; margin-bottom:5px}
   .proj p{font-size:14.5px; color:var(--ink-soft); margin-bottom:8px}
 
-  /* 筆記 */
-  .post{display:grid; grid-template-columns:82px 1fr; gap:20px; padding:12px 0; text-decoration:none; align-items:baseline}
-  .post .d{font-family:var(--mono); font-size:12px; color:var(--ink-soft)}
-  .post .h{font-size:15.5px; border-bottom:1px solid transparent}
-  .post:hover .h{border-bottom-color:var(--ink)}
+  /* 工具箱 */
+  .stack{display:grid; grid-template-columns:118px 1fr; gap:20px; font-size:14.5px}
+  .stack dt{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); padding-top:3px}
+  .stack dd{color:var(--ink)}
 
-  /* 研究之外 — 唯一換色的區塊 */
+  /* 研究之外 */
   #beyond{border-left:2px solid var(--warm); padding-left:26px}
   #beyond .eyebrow{color:var(--warm)}
   #beyond p{font-size:15px; color:var(--ink-soft)}
 
-  /* 聯絡 */
   .contact{display:flex; flex-wrap:wrap; gap:10px 28px; font-family:var(--mono); font-size:13px}
   .contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px}
   .contact a:hover{border-bottom-color:var(--accent)}
 
   .cv-link{
-    display:inline-block; margin-top:20px; font-family:var(--mono); font-size:12px;
+    display:inline-block; margin-top:24px; font-family:var(--mono); font-size:12px;
     letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
     border:1px solid var(--ink); padding:9px 18px;
     transition:background .18s ease,color .18s ease;
   }
   .cv-link:hover{background:var(--ink); color:var(--paper)}
 
-  /* ── 手機 ── */
   @media (max-width:860px){
     .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
     .rail{position:static; height:auto; padding:56px 0 0}
@@ -137,66 +151,109 @@
     nav a .num,nav a.active::before{display:none}
     .rail-foot{display:none}
     main{padding:48px 0 90px}
-    .lede{font-size:22px}
-    .pub,.post{grid-template-columns:1fr; gap:4px}
-    .pub .yr{padding-top:0}
+    .lede{font-size:21px}
+    .pub,.row,.stack{grid-template-columns:1fr; gap:4px}
+    .pub .yr,.row .when{padding-top:0}
+    .stack{gap:14px}
   }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <!-- ══════════ 左欄：姓名 + 導覽 ══════════ -->
   <aside class="rail">
     <div>
-      <div class="name">王小明<span class="en">Ming Wang</span></div>
-      <div class="affil">心理學系 碩士生<br>國立台灣大學</div>
+      <div class="name">Yun-Chieh (Rae) Hsu<span class="zh">許芸婕</span></div>
+      <div class="affil">
+        Research Assistant<br>
+        Brain-Computer Interface Lab<br>
+        CITI, Academia Sinica
+      </div>
     </div>
 
     <nav id="nav">
-      <a href="#about"><span class="num">01</span>簡介</a>
-      <a href="#research"><span class="num">02</span>研究</a>
-      <a href="#pubs"><span class="num">03</span>發表</a>
-      <a href="#projects"><span class="num">04</span>專案</a>
-      <a href="#writing"><span class="num">05</span>筆記</a>
-      <a href="#beyond"><span class="num">06</span>研究之外</a>
-      <a href="#contact"><span class="num">07</span>聯絡</a>
+      <a href="#about"><span class="num">01</span>About</a>
+      <a href="#research"><span class="num">02</span>Research</a>
+      <a href="#pubs"><span class="num">03</span>Publications</a>
+      <a href="#projects"><span class="num">04</span>Projects</a>
+      <a href="#teaching"><span class="num">05</span>Teaching &amp; Outreach</a>
+      <a href="#background"><span class="num">06</span>Background</a>
+      <a href="#toolkit"><span class="num">07</span>Toolkit</a>
+      <a href="#beyond"><span class="num">08</span>Beyond</a>
+      <a href="#contact"><span class="num">09</span>Contact</a>
     </nav>
 
-    <div class="rail-foot">最後更新 2026.07</div>
+    <div class="rail-foot">Updated 2026.07</div>
   </aside>
 
-  <!-- ══════════ 右欄：內容 ══════════ -->
   <main>
 
-    <!-- 01 簡介：這句話最重要，寫完整段研究興趣，不要寫「我是一個熱愛學習的人」 -->
+    <!-- ═══ 01 About ═══ -->
     <section id="about">
-      <p class="lede">我研究人在<em>資訊不完整</em>的情況下如何做決策——特別是記憶如何在我們沒察覺的時候，替我們把選項先篩過一遍。</p>
-      <p class="hero-note">目前在台大心理系跟隨林教授進行研究，結合行為實驗與計算模型。2026 年秋季申請認知科學／計算神經科學博士班。</p>
-      <a class="cv-link" href="cv.pdf">下載 CV（PDF）</a>
+      <p class="lede">From ion channels to <em>intention</em>.</p>
+
+      <p class="hero-note">
+        My work spans the physics that generates a neural signal and the algorithms that read it back off the scalp — two ends of a problem separated by ten orders of magnitude, with a great deal of assumed-away territory in between.
+      </p>
+
+      <p class="hero-note">
+        I'm a research assistant at the Brain-Computer Interface Lab, CITI, Academia Sinica, where I work on non-invasive EEG decoding: SSVEP-based biometric authentication and motor imagery.
+      </p>
+
     </section>
 
-    <!-- 02 研究：兩三個主題，各兩三句。講問題，不要只講方法 -->
+    <!-- ═══ 02 Research ═══ -->
     <section id="research">
       <div class="eyebrow">Research</div>
-      <h2>記憶提取如何約束選擇</h2>
-      <p>當人面對太多選項，大腦不會逐一評估。我用線索提取範式測量哪些選項根本沒被「叫出來」，並用漂移擴散模型估計提取階段對最終選擇的貢獻。</p>
 
-      <h2 style="margin-top:34px">情境變異與遺忘曲線</h2>
-      <p>我們在不同環境學到的東西，在回到原環境時會更容易想起。我在做的是把這個效應放進一個可以預測個別受試者遺忘速率的模型裡。</p>
+      <article class="thread">
+        <div class="tag">SSVEP · Deep learning</div>
+        <h2>How stable is a brain as an identity?</h2>
+        <p>Steady-state visual evoked potentials are individually distinctive enough to authenticate a user — but "distinctive under lab conditions" is not the same as "distinctive tomorrow, with the electrodes remounted." I built an SSVEP biometric pipeline comparing deep learning models across datasets, and systematically varied the things papers usually fix by convention: trial duration, segmentation, filtering choices, electrode configuration.</p>
+        <p>What interests me is how much of the reported performance turns out to depend on those choices rather than on the model.</p>
+      </article>
+
+      <article class="thread">
+        <div class="tag">Motor imagery · In progress</div>
+        <h2>Reproducible pipelines for motor imagery decoding</h2>
+        <p>Motor imagery classification has a reproducibility problem: small subject pools, heavy preprocessing, and pipelines that are difficult to rerun. I'm building analyses that run end to end from raw data, and evaluating spectral and statistical features against learned ones under identical conditions.</p>
+      </article>
+
+      <article class="thread">
+        <div class="tag">Biophysics · Master's thesis</div>
+        <h2>Hysteresis in voltage-gated ion channel systems</h2>
+        <p> 〔待補〕</p>
+      </article>
     </section>
 
-    <!-- 03 發表：自己的名字用 <strong> 粗體。沒有正式發表就放 in prep / under review，很正常 -->
+    <!-- ═══ 03 Publications ═══ -->
     <section id="pubs">
       <div class="eyebrow">Publications</div>
+
+      <div class="group">Journal Articles</div>
 
       <article class="pub">
         <div class="yr">2026</div>
         <div>
-          <div class="t">Retrieval constraints on multi-alternative choice</div>
-          <div class="meta"><strong>Wang, M.</strong>, Lin, H., &amp; Chen, Y. — <span class="venue">Cognition</span>, 247, 105—118.</div>
+          <div class="t">3-D Printed Watermill-Like Semi-Dry Electrodes for BCI Applications</div>
+          <div class="meta">Chung, C.-M., Tsai, C.-H., Chu, Y.-L., Hsu, C.-H., Lu, J.-B., <strong>Hsu, Y.-C.</strong>, Su, Y.-J., Wu, Y., Hung, C.-F., &amp; Wang, Y.-T. — <span class="venue">IEEE Transactions on Neural Systems and Rehabilitation Engineering</span>, 34, 521–531.</div>
           <div class="links">
-            <a href="#">PDF</a><a href="#">Code</a><a href="#">Data</a>
+            <a href="https://doi.org/10.1109/TNSRE.2026.3650950">DOI</a>
+            <a href="https://ieeexplore.ieee.org/document/11329054">IEEE Xplore</a>
+          </div>
+        </div>
+      </article>
+
+      <div class="group">Conference Papers</div>
+
+      <article class="pub">
+        <div class="yr">2026</div>
+        <div>
+          <div class="t">From Movement to Manipulation: Multimodal Control of a Mobile Assistive Robot</div>
+          <div class="meta">Hsieh, C.-Y., Hong, C.-Y., Li, J.-Z., Yang, P.-C., <strong>Hsu, Y.-C.</strong>, Tsai, C.-H., Hsu, C.-H., &amp; Wang, Y.-T. — <span class="venue">14th International Conference on Brain-Computer Interface (BCI)</span>, 1–6.</div>
+          <div class="links">
+            <a href="https://doi.org/10.1109/BCI69045.2026.11435052">DOI</a>
+            <a href="https://ieeexplore.ieee.org/document/11435052">IEEE Xplore</a>
           </div>
         </div>
       </article>
@@ -204,72 +261,122 @@
       <article class="pub">
         <div class="yr">2025</div>
         <div>
-          <div class="t">Context-dependent forgetting in naturalistic settings</div>
-          <div class="meta"><strong>Wang, M.</strong> &amp; Lin, H. — <span class="venue">Under review</span></div>
+          <div class="t">Cross-Condition Analysis of an SSVEP-Based Biometric Authentication System</div>
+          <div class="meta"><strong>Hsu, Y.-C.</strong>, Chu, Y.-L., Tsai, C.-H., Hsu, C.-H., Wang, Y.-T. — <span class="venue">12th International IEEE EMBS Conference on Neural Engineering (NER)</span>, 〔頁碼〕.</div>
           <div class="links">
-            <a href="#">Preprint</a>
+            <a href="https://ieeexplore.ieee.org/document/11589164">IEEE Xplore</a>
+            <a href="#">DOI</a>
+            <a href="#">Code</a>
           </div>
         </div>
       </article>
 
+      <div class="group">Conference Abstracts</div>
+
       <article class="pub">
-        <div class="yr">2024</div>
+        <div class="yr">2025</div>
         <div>
-          <div class="t">學習情境對長期記憶保留之影響</div>
-          <div class="meta"><strong>王小明</strong> — 台灣心理學年會口頭報告，台北。</div>
-          <div class="links"><a href="#">Slides</a></div>
+          <div class="t">Factor Analysis of SSVEP-Based Biometric Authentication: A Pilot Study</div>
+          <div class="meta"><strong>Hsu, Y.-C.</strong>, Wang, Y.-T. — <span class="venue">Society for Neuroscience Annual Meeting</span><span class="status">Poster</span></div>
+          <div class="links"><a href="#">Poster</a></div>
         </div>
       </article>
     </section>
 
-    <!-- 04 專案：實驗工具、開源套件、資料視覺化都算 -->
+    <!-- ═══ 04 Projects ═══ -->
     <section id="projects">
       <div class="eyebrow">Projects</div>
 
       <article class="proj">
-        <h3>ddm-fit</h3>
-        <p>估計漂移擴散模型參數的 Python 套件，比現有工具快約六倍。目前有 40 顆星。</p>
-        <div class="links"><a href="#">GitHub</a><a href="#">Docs</a></div>
+        <h3>Multimodal control of an assistive robot</h3>
+        <p>Mentored a team of four interns who built a mobile assistive robot driven by motor imagery, SSVEP, EMG, and vision-based gesture recognition. They are the four co-first authors on the resulting BCI 2026 paper. Most of my job was deciding which parts of the problem they should be allowed to get stuck on.</p>
+        <div class="links">
+          <a href="https://ieeexplore.ieee.org/document/11435052">Paper</a>
+          <a href="#">GitHub</a>
+          <a href="#">Demo</a>
+        </div>
       </article>
 
       <article class="proj">
-        <h3>線上記憶實驗平台</h3>
-        <p>用 jsPsych 建的受試者招募與資料收集流程，已服務三個實驗、共 620 位受試者。</p>
-        <div class="links"><a href="#">GitHub</a></div>
+        <h3>Watermill-like semi-dry electrodes</h3>
+        <p>〔待補〕</p>
+        <div class="links"><a href="https://ieeexplore.ieee.org/document/11329054">Paper</a></div>
+      </article>
+
+      <article class="proj">
+        <h3>Biological energy transfer as an open quantum system</h3>
+        <p>Modeled excitation transfer in photosynthetic complexes using open quantum system theory — my first encounter with the idea that a living system can be a well-posed physics problem.</p>
       </article>
     </section>
 
-    <!-- 05 筆記：沒有文章就先把整個 section 刪掉，空的比沒有更糟 -->
-    <section id="writing">
-      <div class="eyebrow">Writing</div>
-      <a class="post" href="#">
-        <span class="d">2026.05</span>
-        <span class="h">貝氏因子不是你以為的那個門檻</span>
-      </a>
-      <a class="post" href="#">
-        <span class="d">2026.02</span>
-        <span class="h">我如何用一個週末重寫實驗程式碼</span>
-      </a>
-      <a class="post" href="#">
-        <span class="d">2025.11</span>
-        <span class="h">讀 Anderson (1991) 的一些筆記</span>
-      </a>
+    <!-- ═══ 05 Teaching & Outreach ═══ -->
+    <section id="teaching">
+      <div class="eyebrow">Teaching &amp; Outreach</div>
+
+      <article class="proj">
+        <h3>Brain-Computer Interface Science Camp</h3>
+        <p>Designed and organized a hands-on BCI workshop at Academia Sinica 〔年份〕. I built the curriculum, wrote the SSVEP analysis pipeline participants work through, and adapted our interns' assistive-robot project into a teaching platform they could drive with their own EEG. During the hands-on sessions I worked alongside the participants, helping them through the analysis and talking with them about the field.</p>
+        <div class="links"><a href="#">Workshop repository</a></div>
+      </article>
+
+      <article class="proj">
+        <h3>Academia Sinica Open House</h3>
+        <p>Helped run the Brain-Computer Interface Lab's exhibit at the institute's annual open house, demonstrating live EEG recording to general audiences. 〔待補〕</p>
+      </article>
     </section>
 
-    <!-- 06 研究之外：保持在三行以內。具體、有畫面，不要寫「喜歡音樂」 -->
+    <!-- ═══ 06 Background ═══ -->
+    <section id="background">
+      <div class="eyebrow">Background</div>
+
+      <div class="row">
+        <div class="when">2024 — present</div>
+        <div>
+          <div class="what">Research Assistant</div>
+          <div class="where">Brain-Computer Interface Lab, CITI, Academia Sinica · PI: Prof. Yu-Te Wang</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="when">2022 — 2024</div>
+        <div>
+          <div class="what">M.S. in Physics</div>
+          <div class="where">National Cheng Kung University · Quantum Information Science Lab, Prof. Wei-Min Zhang · GPA 4.3/4.3</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="when">2019 — 2022</div>
+        <div>
+          <div class="what">B.S. in Physics</div>
+          <div class="where">National Cheng Kung University · GPA 3.99/4.3, ranked 6/48</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ 07 Toolkit ═══ -->
+    <section id="toolkit">
+      <div class="eyebrow">Toolkit</div>
+      <dl class="stack">
+        <dt>Languages</dt><dd>Python, MATLAB</dd>
+        <dt>Signals</dt><dd>EEG preprocessing, spectral and statistical feature extraction, deep learning for time series</dd>
+        <dt>Hardware</dt><dd>Arduino, Raspberry Pi</dd>
+        <dt>Modeling</dt><dd>Langevin dynamics, Hodgkin–Huxley kinetics, open quantum systems, numerical optimization</dd>
+      </dl>
+    </section>
+
     <section id="beyond">
       <div class="eyebrow">Beyond</div>
-      <p>我做木工榫接的小盒子，也在一個三人樂團彈貝斯，偶爾在河堤邊的市集演出。兩件事都需要在看不見成果的階段持續修正手感——這大概是我唯一能不靠模型解釋的學習過程。</p>
+      <p>〔待補〕</p>
     </section>
 
-    <!-- 07 聯絡 -->
     <section id="contact">
       <div class="eyebrow">Contact</div>
       <div class="contact">
-        <a href="mailto:ming@example.com">ming@example.com</a>
-        <a href="#">Google Scholar</a>
-        <a href="#">GitHub</a>
-        <a href="#">ORCID</a>
+        <a href="mailto:raehsuscience@gmail.com">raehsuscience@gmail.com</a>
+        <a href="https://github.com/RaeHYC118">GitHub</a>
+        <a href="https://orcid.org/0009-0004-3834-7170">ORCID</a>
+        <!--<a href="#">Google Scholar</a>-->
       </div>
     </section>
 
@@ -277,7 +384,6 @@
 </div>
 
 <script>
-  // 捲動時高亮左欄目前所在的章節
   const links = [...document.querySelectorAll('#nav a')];
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const obs = new IntersectionObserver(entries => {
