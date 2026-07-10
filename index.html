@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ▼▼ 改這裡：瀏覽器分頁標題、以及 Google 搜尋時顯示的描述 ▼▼ -->
+<title>王小明 Ming Wang｜認知科學研究</title>
+<meta name="description" content="王小明，台灣大學心理學系。研究記憶、注意力與計算模型。">
+<!-- ▲▲ ▲▲ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --paper:#FBFAF8;
+    --ink:#16181D;
+    --ink-soft:#5C6068;
+    --rule:#DEDCD6;
+    --accent:#2F5F63;        /* 研究相關的深青 */
+    --warm:#A86B33;          /* 只用在「研究之外」那一區 */
+    --serif:"Source Serif 4","Noto Serif TC",Georgia,serif;
+    --sans:"IBM Plex Sans","Noto Sans TC",system-ui,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+  body{
+    background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+  .wrap{
+    max-width:1080px; margin:0 auto; padding:0 32px;
+    display:grid; grid-template-columns:260px 1fr; gap:72px;
+    align-items:start;
+  }
+
+  /* ── 左側固定欄 ── */
+  .rail{position:sticky; top:0; padding:72px 0; height:100vh; display:flex; flex-direction:column}
+  .name{font-family:var(--serif); font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.01em}
+  .name .en{display:block; font-size:17px; font-weight:400; color:var(--ink-soft); letter-spacing:.04em; margin-top:6px}
+  .affil{font-size:14px; color:var(--ink-soft); margin-top:18px; line-height:1.5}
+
+  nav{margin-top:40px}
+  nav a{
+    display:flex; align-items:baseline; gap:12px;
+    text-decoration:none; padding:7px 0;
+    font-size:14px; color:var(--ink-soft);
+    transition:color .18s ease;
+  }
+  nav a .num{font-family:var(--mono); font-size:11px; color:var(--rule); transition:color .18s ease}
+  nav a:hover,nav a.active{color:var(--ink)}
+  nav a.active .num{color:var(--accent)}
+  nav a.active::before{content:""; position:absolute; left:-16px; width:2px; height:18px; background:var(--accent)}
+  nav a{position:relative}
+
+  .rail-foot{margin-top:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
+
+  /* ── 右側內容 ── */
+  main{padding:72px 0 140px}
+  section{padding-bottom:72px; margin-bottom:72px; border-bottom:1px solid var(--rule)}
+  section:last-child{border-bottom:none}
+
+  .eyebrow{
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft); margin-bottom:22px;
+  }
+
+  /* Hero：一句話講清楚你研究什麼 */
+  .lede{font-family:var(--serif); font-size:27px; line-height:1.45; letter-spacing:-.005em; max-width:34em}
+  .lede em{font-style:normal; box-shadow:inset 0 -.42em 0 rgba(47,95,99,.13)}
+  .hero-note{margin-top:26px; color:var(--ink-soft); max-width:36em; font-size:15px}
+
+  h2{font-family:var(--serif); font-size:21px; font-weight:600; margin-bottom:20px}
+  p{max-width:36em; margin-bottom:14px}
+  p:last-child{margin-bottom:0}
+
+  /* 論文列表：左邊 mono 年份溝槽 */
+  .pub{display:grid; grid-template-columns:56px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--rule)}
+  .pub:first-of-type{border-top:none; padding-top:0}
+  .pub .yr{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:5px}
+  .pub .t{font-family:var(--serif); font-size:17px; line-height:1.4; margin-bottom:5px}
+  .pub .meta{font-size:13.5px; color:var(--ink-soft)}
+  .pub .meta .venue{font-style:italic}
+  .pub .meta strong{font-weight:500; color:var(--ink)}
+  .links{margin-top:8px; display:flex; gap:14px; flex-wrap:wrap}
+  .links a{
+    font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px;
+  }
+  .links a:hover{border-bottom-color:var(--accent)}
+
+  /* 專案 */
+  .proj{padding:18px 0; border-top:1px solid var(--rule)}
+  .proj:first-of-type{border-top:none; padding-top:0}
+  .proj h3{font-family:var(--serif); font-size:17px; font-weight:600; margin-bottom:5px}
+  .proj p{font-size:14.5px; color:var(--ink-soft); margin-bottom:8px}
+
+  /* 筆記 */
+  .post{display:grid; grid-template-columns:82px 1fr; gap:20px; padding:12px 0; text-decoration:none; align-items:baseline}
+  .post .d{font-family:var(--mono); font-size:12px; color:var(--ink-soft)}
+  .post .h{font-size:15.5px; border-bottom:1px solid transparent}
+  .post:hover .h{border-bottom-color:var(--ink)}
+
+  /* 研究之外 — 唯一換色的區塊 */
+  #beyond{border-left:2px solid var(--warm); padding-left:26px}
+  #beyond .eyebrow{color:var(--warm)}
+  #beyond p{font-size:15px; color:var(--ink-soft)}
+
+  /* 聯絡 */
+  .contact{display:flex; flex-wrap:wrap; gap:10px 28px; font-family:var(--mono); font-size:13px}
+  .contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px}
+  .contact a:hover{border-bottom-color:var(--accent)}
+
+  .cv-link{
+    display:inline-block; margin-top:20px; font-family:var(--mono); font-size:12px;
+    letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
+    border:1px solid var(--ink); padding:9px 18px;
+    transition:background .18s ease,color .18s ease;
+  }
+  .cv-link:hover{background:var(--ink); color:var(--paper)}
+
+  /* ── 手機 ── */
+  @media (max-width:860px){
+    .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
+    .rail{position:static; height:auto; padding:56px 0 0}
+    nav{display:flex; flex-wrap:wrap; gap:0 20px; margin-top:28px}
+    nav a .num,nav a.active::before{display:none}
+    .rail-foot{display:none}
+    main{padding:48px 0 90px}
+    .lede{font-size:22px}
+    .pub,.post{grid-template-columns:1fr; gap:4px}
+    .pub .yr{padding-top:0}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ══════════ 左欄：姓名 + 導覽 ══════════ -->
+  <aside class="rail">
+    <div>
+      <div class="name">王小明<span class="en">Ming Wang</span></div>
+      <div class="affil">心理學系 碩士生<br>國立台灣大學</div>
+    </div>
+
+    <nav id="nav">
+      <a href="#about"><span class="num">01</span>簡介</a>
+      <a href="#research"><span class="num">02</span>研究</a>
+      <a href="#pubs"><span class="num">03</span>發表</a>
+      <a href="#projects"><span class="num">04</span>專案</a>
+      <a href="#writing"><span class="num">05</span>筆記</a>
+      <a href="#beyond"><span class="num">06</span>研究之外</a>
+      <a href="#contact"><span class="num">07</span>聯絡</a>
+    </nav>
+
+    <div class="rail-foot">最後更新 2026.07</div>
+  </aside>
+
+  <!-- ══════════ 右欄：內容 ══════════ -->
+  <main>
+
+    <!-- 01 簡介：這句話最重要，寫完整段研究興趣，不要寫「我是一個熱愛學習的人」 -->
+    <section id="about">
+      <p class="lede">我研究人在<em>資訊不完整</em>的情況下如何做決策——特別是記憶如何在我們沒察覺的時候，替我們把選項先篩過一遍。</p>
+      <p class="hero-note">目前在台大心理系跟隨林教授進行研究，結合行為實驗與計算模型。2026 年秋季申請認知科學／計算神經科學博士班。</p>
+      <a class="cv-link" href="cv.pdf">下載 CV（PDF）</a>
+    </section>
+
+    <!-- 02 研究：兩三個主題，各兩三句。講問題，不要只講方法 -->
+    <section id="research">
+      <div class="eyebrow">Research</div>
+      <h2>記憶提取如何約束選擇</h2>
+      <p>當人面對太多選項，大腦不會逐一評估。我用線索提取範式測量哪些選項根本沒被「叫出來」，並用漂移擴散模型估計提取階段對最終選擇的貢獻。</p>
+
+      <h2 style="margin-top:34px">情境變異與遺忘曲線</h2>
+      <p>我們在不同環境學到的東西，在回到原環境時會更容易想起。我在做的是把這個效應放進一個可以預測個別受試者遺忘速率的模型裡。</p>
+    </section>
+
+    <!-- 03 發表：自己的名字用 <strong> 粗體。沒有正式發表就放 in prep / under review，很正常 -->
+    <section id="pubs">
+      <div class="eyebrow">Publications</div>
+
+      <article class="pub">
+        <div class="yr">2026</div>
+        <div>
+          <div class="t">Retrieval constraints on multi-alternative choice</div>
+          <div class="meta"><strong>Wang, M.</strong>, Lin, H., &amp; Chen, Y. — <span class="venue">Cognition</span>, 247, 105—118.</div>
+          <div class="links">
+            <a href="#">PDF</a><a href="#">Code</a><a href="#">Data</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="yr">2025</div>
+        <div>
+          <div class="t">Context-dependent forgetting in naturalistic settings</div>
+          <div class="meta"><strong>Wang, M.</strong> &amp; Lin, H. — <span class="venue">Under review</span></div>
+          <div class="links">
+            <a href="#">Preprint</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="pub">
+        <div class="yr">2024</div>
+        <div>
+          <div class="t">學習情境對長期記憶保留之影響</div>
+          <div class="meta"><strong>王小明</strong> — 台灣心理學年會口頭報告，台北。</div>
+          <div class="links"><a href="#">Slides</a></div>
+        </div>
+      </article>
+    </section>
+
+    <!-- 04 專案：實驗工具、開源套件、資料視覺化都算 -->
+    <section id="projects">
+      <div class="eyebrow">Projects</div>
+
+      <article class="proj">
+        <h3>ddm-fit</h3>
+        <p>估計漂移擴散模型參數的 Python 套件，比現有工具快約六倍。目前有 40 顆星。</p>
+        <div class="links"><a href="#">GitHub</a><a href="#">Docs</a></div>
+      </article>
+
+      <article class="proj">
+        <h3>線上記憶實驗平台</h3>
+        <p>用 jsPsych 建的受試者招募與資料收集流程，已服務三個實驗、共 620 位受試者。</p>
+        <div class="links"><a href="#">GitHub</a></div>
+      </article>
+    </section>
+
+    <!-- 05 筆記：沒有文章就先把整個 section 刪掉，空的比沒有更糟 -->
+    <section id="writing">
+      <div class="eyebrow">Writing</div>
+      <a class="post" href="#">
+        <span class="d">2026.05</span>
+        <span class="h">貝氏因子不是你以為的那個門檻</span>
+      </a>
+      <a class="post" href="#">
+        <span class="d">2026.02</span>
+        <span class="h">我如何用一個週末重寫實驗程式碼</span>
+      </a>
+      <a class="post" href="#">
+        <span class="d">2025.11</span>
+        <span class="h">讀 Anderson (1991) 的一些筆記</span>
+      </a>
+    </section>
+
+    <!-- 06 研究之外：保持在三行以內。具體、有畫面，不要寫「喜歡音樂」 -->
+    <section id="beyond">
+      <div class="eyebrow">Beyond</div>
+      <p>我做木工榫接的小盒子，也在一個三人樂團彈貝斯，偶爾在河堤邊的市集演出。兩件事都需要在看不見成果的階段持續修正手感——這大概是我唯一能不靠模型解釋的學習過程。</p>
+    </section>
+
+    <!-- 07 聯絡 -->
+    <section id="contact">
+      <div class="eyebrow">Contact</div>
+      <div class="contact">
+        <a href="mailto:ming@example.com">ming@example.com</a>
+        <a href="#">Google Scholar</a>
+        <a href="#">GitHub</a>
+        <a href="#">ORCID</a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+  // 捲動時高亮左欄目前所在的章節
+  const links = [...document.querySelectorAll('#nav a')];
+  const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove('active'));
+        map.get(e.target.id)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+  document.querySelectorAll('section').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
