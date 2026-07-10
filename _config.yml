@@ -1,0 +1,22 @@
+title: "Yun-Chieh (Rae) Hsu"
+description: "Brain-computer interfaces, EEG decoding, and the biophysics of neural signals."
+url: "https://raehyc118.github.io"
+baseurl: ""
+
+# 文章網址長這樣：/blog/2026/07/10/文章名稱/
+permalink: /blog/:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  math_engine: mathjax
+
+plugins:
+  - jekyll-feed
+
+# 不要被 Jekyll 處理的東西
+exclude:
+  - README.md
+  - LICENSE
+  - cv.pdf
