@@ -10,153 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Noto+Sans+TC:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --paper:#FBFAF8;
-    --ink:#16181D;
-    --ink-soft:#5C6068;
-    --rule:#DEDCD6;
-    --accent:#2F5F63;
-    --warm:#A86B33;
-    --serif:"Source Serif 4","Noto Serif TC",Georgia,serif;
-    --sans:"IBM Plex Sans","Noto Sans TC",system-ui,sans-serif;
-    --mono:"IBM Plex Mono",ui-monospace,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto}
-    *{transition:none!important;animation:none!important}
-  }
-  body{
-    background:var(--paper); color:var(--ink);
-    font-family:var(--sans); font-size:16px; line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit}
-  :focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
-
-  .wrap{
-    max-width:1080px; margin:0 auto; padding:0 32px;
-    display:grid; grid-template-columns:260px 1fr; gap:72px; align-items:start;
-  }
-
-  /* ── 左欄 ── */
-  .rail{position:sticky; top:0; padding:72px 0; height:100vh; display:flex; flex-direction:column}
-  .name{font-family:var(--serif); font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.01em}
-  .name .zh{display:block; font-size:17px; font-weight:400; color:var(--ink-soft); letter-spacing:.12em; margin-top:8px}
-  .affil{font-size:14px; color:var(--ink-soft); margin-top:20px; line-height:1.55}
-  .affil a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule)}
-  .affil a:hover{color:var(--ink); border-bottom-color:var(--ink)}
-
-  nav{margin-top:40px}
-  nav a{
-    position:relative; display:flex; align-items:baseline; gap:12px;
-    text-decoration:none; padding:7px 0; font-size:14px; color:var(--ink-soft);
-    transition:color .18s ease;
-  }
-  nav a .num{font-family:var(--mono); font-size:11px; color:var(--rule); transition:color .18s ease}
-  nav a:hover,nav a.active{color:var(--ink)}
-  nav a.active .num{color:var(--accent)}
-  nav a.active::before{content:""; position:absolute; left:-16px; top:9px; width:2px; height:18px; background:var(--accent)}
-
-  .rail-foot{margin-top:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
-
-  /* ── 右欄 ── */
-  main{padding:72px 0 140px}
-  section{padding-bottom:68px; margin-bottom:68px; border-bottom:1px solid var(--rule)}
-  section:last-child{border-bottom:none; margin-bottom:0}
-
-  .eyebrow{
-    font-family:var(--mono); font-size:11px; letter-spacing:.14em;
-    text-transform:uppercase; color:var(--ink-soft); margin-bottom:24px;
-  }
-
-  .lede{font-family:var(--serif); font-size:26px; line-height:1.48; letter-spacing:-.005em; max-width:33em}
-  .lede em{font-style:normal; box-shadow:inset 0 -.42em 0 rgba(47,95,99,.14)}
-  .hero-note{margin-top:26px; color:var(--ink-soft); max-width:37em; font-size:15px}
-
-  h2{font-family:var(--serif); font-size:20px; font-weight:600; margin-bottom:14px}
-  .thread{padding-top:30px; margin-top:30px; border-top:1px solid var(--rule)}
-  .thread:first-of-type{padding-top:0; margin-top:0; border-top:none}
-  .tag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--accent); margin-bottom:7px}
-  p{max-width:37em; margin-bottom:14px}
-  p:last-child{margin-bottom:0}
-
-  /* 學歷 / 經歷 */
-  .row{display:grid; grid-template-columns:118px 1fr; gap:20px; padding:14px 0; border-top:1px solid var(--rule)}
-  .row:first-of-type{border-top:none; padding-top:0}
-  .row .when{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:4px}
-  .row .what{font-size:15.5px}
-  .row .where{font-size:13.5px; color:var(--ink-soft); margin-top:2px}
-
-  /* 發表 */
-  .pub{display:grid; grid-template-columns:56px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--rule)}
-  .pub:first-of-type{border-top:none; padding-top:0}
-  .pub .yr{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:5px}
-  .pub .t{font-family:var(--serif); font-size:17px; line-height:1.42; margin-bottom:5px}
-  .pub .meta{font-size:13.5px; color:var(--ink-soft)}
-  .pub .meta .venue{font-style:italic}
-  .pub .meta strong{font-weight:500; color:var(--ink)}
-  .status{
-    font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
-    color:var(--ink-soft); border:1px solid var(--rule); padding:1px 6px; margin-left:6px; white-space:nowrap;
-  }
-  .links{margin-top:9px; display:flex; gap:14px; flex-wrap:wrap}
-  .links a{
-    font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
-    color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px;
-  }
-  .links a:hover{border-bottom-color:var(--accent)}
-
-  .group{
-    font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-    color:var(--ink); margin:44px 0 18px; padding-bottom:7px; border-bottom:1px solid var(--ink);
-  }
-  .group:first-of-type{margin-top:0}
-
-  /* 專案 */
-  .proj{padding:18px 0; border-top:1px solid var(--rule)}
-  .proj:first-of-type{border-top:none; padding-top:0}
-  .proj h3{font-family:var(--serif); font-size:17px; font-weight:600; margin-bottom:5px}
-  .proj p{font-size:14.5px; color:var(--ink-soft); margin-bottom:8px}
-
-  /* 工具箱 */
-  .stack{display:grid; grid-template-columns:118px 1fr; gap:20px; font-size:14.5px}
-  .stack dt{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); padding-top:3px}
-  .stack dd{color:var(--ink)}
-
-  /* 研究之外 */
-  #beyond{border-left:2px solid var(--warm); padding-left:26px}
-  #beyond .eyebrow{color:var(--warm)}
-  #beyond p{font-size:15px; color:var(--ink-soft)}
-
-  .contact{display:flex; flex-wrap:wrap; gap:10px 28px; font-family:var(--mono); font-size:13px}
-  .contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px}
-  .contact a:hover{border-bottom-color:var(--accent)}
-
-  .cv-link{
-    display:inline-block; margin-top:24px; font-family:var(--mono); font-size:12px;
-    letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
-    border:1px solid var(--ink); padding:9px 18px;
-    transition:background .18s ease,color .18s ease;
-  }
-  .cv-link:hover{background:var(--ink); color:var(--paper)}
-
-  @media (max-width:860px){
-    .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
-    .rail{position:static; height:auto; padding:56px 0 0}
-    nav{display:flex; flex-wrap:wrap; gap:0 20px; margin-top:28px}
-    nav a .num,nav a.active::before{display:none}
-    .rail-foot{display:none}
-    main{padding:48px 0 90px}
-    .lede{font-size:21px}
-    .pub,.row,.stack{grid-template-columns:1fr; gap:4px}
-    .pub .yr,.row .when{padding-top:0}
-    .stack{gap:14px}
-  }
-</style>
+<link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 <div class="wrap">
@@ -181,6 +35,10 @@
       <a href="#toolkit"><span class="num">07</span>Toolkit</a>
       <a href="#beyond"><span class="num">08</span>Beyond</a>
       <a href="#contact"><span class="num">09</span>Contact</a>
+
+      <div class="nav-out">
+        <a href="/blog/">Blog →</a>
+      </div>
     </nav>
 
     <div class="rail-foot">Updated 2026.07</div>
@@ -199,7 +57,6 @@
       <p class="hero-note">
         I'm a research assistant at the Brain-Computer Interface Lab, CITI, Academia Sinica, where I work on non-invasive EEG decoding: SSVEP-based biometric authentication and motor imagery.
       </p>
-
     </section>
 
     <!-- ═══ 02 Research ═══ -->
@@ -222,7 +79,7 @@
       <article class="thread">
         <div class="tag">Biophysics · Master's thesis</div>
         <h2>Hysteresis in voltage-gated ion channel systems</h2>
-        <p> 〔待補〕</p>
+        <p>〔待補〕</p>
       </article>
     </section>
 
@@ -262,7 +119,7 @@
         <div class="yr">2025</div>
         <div>
           <div class="t">Cross-Condition Analysis of an SSVEP-Based Biometric Authentication System</div>
-          <div class="meta"><strong>Hsu, Y.-C.</strong>, Chu, Y.-L., Tsai, C.-H., Hsu, C.-H., Wang, Y.-T. — <span class="venue">12th International IEEE EMBS Conference on Neural Engineering (NER)</span>, 〔頁碼〕.</div>
+          <div class="meta"><strong>Hsu, Y.-C.</strong>, Chu, Y.-L., Tsai, C.-H., Hsu, C.-H., &amp; Wang, Y.-T. — <span class="venue">12th International IEEE EMBS Conference on Neural Engineering (NER)</span>, 〔頁碼〕.</div>
           <div class="links">
             <a href="https://ieeexplore.ieee.org/document/11589164">IEEE Xplore</a>
             <a href="#">DOI</a>
@@ -277,7 +134,7 @@
         <div class="yr">2025</div>
         <div>
           <div class="t">Factor Analysis of SSVEP-Based Biometric Authentication: A Pilot Study</div>
-          <div class="meta"><strong>Hsu, Y.-C.</strong>, Wang, Y.-T. — <span class="venue">Society for Neuroscience Annual Meeting</span><span class="status">Poster</span></div>
+          <div class="meta"><strong>Hsu, Y.-C.</strong>, &amp; Wang, Y.-T. — <span class="venue">Society for Neuroscience Annual Meeting</span><span class="status">Poster</span></div>
           <div class="links"><a href="#">Poster</a></div>
         </div>
       </article>
@@ -365,18 +222,20 @@
       </dl>
     </section>
 
+    <!-- ═══ 08 Beyond ═══ -->
     <section id="beyond">
       <div class="eyebrow">Beyond</div>
       <p>〔待補〕</p>
     </section>
 
+    <!-- ═══ 09 Contact ═══ -->
     <section id="contact">
       <div class="eyebrow">Contact</div>
       <div class="contact">
         <a href="mailto:raehsuscience@gmail.com">raehsuscience@gmail.com</a>
         <a href="https://github.com/RaeHYC118">GitHub</a>
         <a href="https://orcid.org/0009-0004-3834-7170">ORCID</a>
-        <!--<a href="#">Google Scholar</a>-->
+        <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-TW&authuser=4&user=O3okWfwAAAAJ&gmla=AO4B3jtiQFzeKPL010_GXHpj_14PBlBiM9l5H7FXBcCtiw1KQINRcMM8LzbB6UAUUeYH8xNGnUdscbCy6oZ6b0scWas1-havf46u4XLcSXU_NRTM5PpmROD__DST">Google Scholar</a>
       </div>
     </section>
 
@@ -384,7 +243,7 @@
 </div>
 
 <script>
-  const links = [...document.querySelectorAll('#nav a')];
+  const links = [...document.querySelectorAll('#nav a[href^="#"]')];
   const map = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
   const obs = new IntersectionObserver(entries => {
     entries.forEach(e => {
