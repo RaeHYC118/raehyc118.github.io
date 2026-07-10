@@ -49,7 +49,8 @@ nav a{
   transition:color .18s ease;
 }
 nav a .num{font-family:var(--mono); font-size:11px; color:var(--rule); transition:color .18s ease}
-nav a:hover,nav a.active{color:var(--ink)}
+nav a:hover{color:var(--ink)}
+nav a.active{color:var(--ink); font-weight:500}
 nav a.active .num{color:var(--accent)}
 nav a.active::before{content:""; position:absolute; left:-16px; top:9px; width:2px; height:18px; background:var(--accent)}
 
@@ -62,7 +63,22 @@ nav a.active::before{content:""; position:absolute; left:-16px; top:9px; width:2
 .nav-out a:hover{color:var(--ink)}
 .nav-out a .num{display:none}
 
-.rail-foot{margin-top:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
+/* 左欄底部：常駐聯絡連結 */
+.rail-links{
+  margin-top:auto; padding-top:32px;
+  display:flex; flex-wrap:wrap; gap:7px 18px;
+}
+.rail-links a{
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em;
+  text-transform:uppercase; color:var(--ink-soft); text-decoration:none;
+  border-bottom:1px solid transparent; padding-bottom:1px;
+}
+.rail-links a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+
+.rail-foot{margin-top:20px; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
+
+/* 手機版選單按鈕（桌機隱藏） */
+.menu-toggle{display:none}
 
 /* ── 右欄 ── */
 main{padding:72px 0 140px}
@@ -232,17 +248,66 @@ p:last-child{margin-bottom:0}
    ══════════════════════════════════════════════════ */
 @media (max-width:860px){
   .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
-  .rail{position:static; height:auto; padding:56px 0 0}
-  nav{display:flex; flex-wrap:wrap; gap:0 20px; margin-top:28px}
-  nav a .num,nav a.active::before{display:none}
-  .nav-out{margin-top:14px; padding-top:14px; display:flex; gap:20px}
+
+  /* 頁首：只留姓名、單位、Blog 入口 */
+  .rail{
+    position:static; height:auto;
+    padding:44px 0 26px; margin-bottom:38px;
+    border-bottom:1px solid var(--rule);
+  }
+  .name{font-size:26px}
+  .name .zh{font-size:15px; margin-top:6px}
+  .affil{margin-top:16px; font-size:13.5px}
+
+  /* 手機版：章節導覽收進選單 */
+  .menu-toggle{
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; margin-top:22px; padding:12px 0;
+    background:none; border:none; cursor:pointer;
+    border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+    font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-soft);
+  }
+  .menu-toggle .chev{
+    font-size:9px; transition:transform .22s ease;
+  }
+  .menu-toggle[aria-expanded="true"]{color:var(--ink)}
+  .menu-toggle[aria-expanded="true"] .chev{transform:rotate(180deg)}
+
+  nav{
+    margin-top:0; overflow:hidden;
+    max-height:0; transition:max-height .28s ease;
+  }
+  nav.open{max-height:520px}
+  nav a[href^="#"]{padding:9px 0}
+  nav a:first-child{padding-top:14px}
+  nav a:last-child{padding-bottom:14px}
+  nav a.active::before{display:none}
+  nav a.active{color:var(--accent)}
+
+  .rail-links{margin-top:0; padding-top:18px; gap:6px 16px}
   .rail-foot{display:none}
-  main{padding:48px 0 90px}
-  .lede{font-size:21px}
-  .pub,.row,.stack,.post-item{grid-template-columns:1fr; gap:4px}
+
+  main{padding:0 0 80px}
+  section{padding-bottom:44px; margin-bottom:44px}
+
+  .lede{font-size:22px; line-height:1.4}
+  .hero-note{margin-top:20px}
+
+  .pub,.row,.stack,.post-item{grid-template-columns:1fr; gap:5px}
   .pub .yr,.row .when,.post-item .when{padding-top:0}
   .stack{gap:14px}
-  .post-item{gap:8px}
+  .stack dt{padding-top:0}
+  .post-item{gap:8px; padding:20px 0}
+
+  .group{margin-top:36px}
+  .thread{padding-top:26px; margin-top:26px}
+
+  #beyond{padding-left:20px}
+
   .post-header h1{font-size:25px}
-  .prose{font-size:16.5px}
+  .post-header{padding-bottom:26px; margin-bottom:26px}
+  .prose{font-size:16.5px; line-height:1.68}
+  .prose pre{font-size:12.5px; padding:14px 16px; margin-left:-22px; margin-right:-22px; border-left:none; border-right:none}
+  .back{margin-top:48px}
 }
