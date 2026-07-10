@@ -1,0 +1,248 @@
+/* ══════════════════════════════════════════════════
+   Yun-Chieh (Rae) Hsu — shared stylesheet
+   首頁與部落格共用。改這裡，兩邊都會變。
+   ══════════════════════════════════════════════════ */
+
+:root{
+  --paper:#FBFAF8;
+  --ink:#16181D;
+  --ink-soft:#5C6068;
+  --rule:#DEDCD6;
+  --accent:#2F5F63;
+  --warm:#A86B33;
+  --serif:"Source Serif 4","Noto Serif TC",Georgia,serif;
+  --sans:"IBM Plex Sans","Noto Sans TC",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important;animation:none!important}
+}
+body{
+  background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:2px}
+
+.wrap{
+  max-width:1080px; margin:0 auto; padding:0 32px;
+  display:grid; grid-template-columns:260px 1fr; gap:72px; align-items:start;
+}
+
+/* ── 左欄 ── */
+.rail{position:sticky; top:0; padding:72px 0; height:100vh; display:flex; flex-direction:column}
+.name{font-family:var(--serif); font-size:30px; font-weight:600; line-height:1.15; letter-spacing:-.01em}
+.name a{text-decoration:none}
+.name .zh{display:block; font-size:17px; font-weight:400; color:var(--ink-soft); letter-spacing:.12em; margin-top:8px}
+.affil{font-size:14px; color:var(--ink-soft); margin-top:20px; line-height:1.55}
+.affil a{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--rule)}
+.affil a:hover{color:var(--ink); border-bottom-color:var(--ink)}
+
+nav{margin-top:40px}
+nav a{
+  position:relative; display:flex; align-items:baseline; gap:12px;
+  text-decoration:none; padding:7px 0; font-size:14px; color:var(--ink-soft);
+  transition:color .18s ease;
+}
+nav a .num{font-family:var(--mono); font-size:11px; color:var(--rule); transition:color .18s ease}
+nav a:hover,nav a.active{color:var(--ink)}
+nav a.active .num{color:var(--accent)}
+nav a.active::before{content:""; position:absolute; left:-16px; top:9px; width:2px; height:18px; background:var(--accent)}
+
+/* 導覽列裡通往別頁的連結（Blog / Home），跟頁內錨點分開 */
+.nav-out{margin-top:22px; padding-top:18px; border-top:1px solid var(--rule)}
+.nav-out a{
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent); padding:5px 0;
+}
+.nav-out a:hover{color:var(--ink)}
+.nav-out a .num{display:none}
+
+.rail-foot{margin-top:auto; font-family:var(--mono); font-size:11px; color:var(--ink-soft); letter-spacing:.05em}
+
+/* ── 右欄 ── */
+main{padding:72px 0 140px}
+section{padding-bottom:68px; margin-bottom:68px; border-bottom:1px solid var(--rule)}
+section:last-child{border-bottom:none; margin-bottom:0}
+
+.eyebrow{
+  font-family:var(--mono); font-size:11px; letter-spacing:.14em;
+  text-transform:uppercase; color:var(--ink-soft); margin-bottom:24px;
+}
+
+.lede{font-family:var(--serif); font-size:26px; line-height:1.48; letter-spacing:-.005em; max-width:33em}
+.lede em{font-style:normal; box-shadow:inset 0 -.42em 0 rgba(47,95,99,.14)}
+.hero-note{margin-top:26px; color:var(--ink-soft); max-width:37em; font-size:15px}
+
+h2{font-family:var(--serif); font-size:20px; font-weight:600; margin-bottom:14px}
+.thread{padding-top:30px; margin-top:30px; border-top:1px solid var(--rule)}
+.thread:first-of-type{padding-top:0; margin-top:0; border-top:none}
+.tag{font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--accent); margin-bottom:7px}
+p{max-width:37em; margin-bottom:14px}
+p:last-child{margin-bottom:0}
+
+/* 學歷 / 經歷 */
+.row{display:grid; grid-template-columns:118px 1fr; gap:20px; padding:14px 0; border-top:1px solid var(--rule)}
+.row:first-of-type{border-top:none; padding-top:0}
+.row .when{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:4px}
+.row .what{font-size:15.5px}
+.row .where{font-size:13.5px; color:var(--ink-soft); margin-top:2px}
+
+/* 發表 */
+.pub{display:grid; grid-template-columns:56px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--rule)}
+.pub:first-of-type{border-top:none; padding-top:0}
+.pub .yr{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:5px}
+.pub .t{font-family:var(--serif); font-size:17px; line-height:1.42; margin-bottom:5px}
+.pub .meta{font-size:13.5px; color:var(--ink-soft)}
+.pub .meta .venue{font-style:italic}
+.pub .meta strong{font-weight:500; color:var(--ink)}
+.status{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.07em; text-transform:uppercase;
+  color:var(--ink-soft); border:1px solid var(--rule); padding:1px 6px; margin-left:6px; white-space:nowrap;
+}
+.links{margin-top:9px; display:flex; gap:14px; flex-wrap:wrap}
+.links a{
+  font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:1px;
+}
+.links a:hover{border-bottom-color:var(--accent)}
+
+.group{
+  font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink); margin:44px 0 18px; padding-bottom:7px; border-bottom:1px solid var(--ink);
+}
+.group:first-of-type{margin-top:0}
+
+/* 專案 */
+.proj{padding:18px 0; border-top:1px solid var(--rule)}
+.proj:first-of-type{border-top:none; padding-top:0}
+.proj h3{font-family:var(--serif); font-size:17px; font-weight:600; margin-bottom:5px}
+.proj p{font-size:14.5px; color:var(--ink-soft); margin-bottom:8px}
+
+/* 工具箱 */
+.stack{display:grid; grid-template-columns:118px 1fr; gap:20px; font-size:14.5px}
+.stack dt{font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); padding-top:3px}
+.stack dd{color:var(--ink)}
+
+/* 研究之外 */
+#beyond{border-left:2px solid var(--warm); padding-left:26px}
+#beyond .eyebrow{color:var(--warm)}
+#beyond p{font-size:15px; color:var(--ink-soft)}
+
+.contact{display:flex; flex-wrap:wrap; gap:10px 28px; font-family:var(--mono); font-size:13px}
+.contact a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule); padding-bottom:2px}
+.contact a:hover{border-bottom-color:var(--accent)}
+
+.cv-link{
+  display:inline-block; margin-top:24px; font-family:var(--mono); font-size:12px;
+  letter-spacing:.06em; text-transform:uppercase; text-decoration:none;
+  border:1px solid var(--ink); padding:9px 18px;
+  transition:background .18s ease,color .18s ease;
+}
+.cv-link:hover{background:var(--ink); color:var(--paper)}
+
+
+/* ══════════════════════════════════════════════════
+   BLOG
+   ══════════════════════════════════════════════════ */
+
+/* 文章列表 */
+.post-list{margin-top:-6px}
+.post-item{
+  display:grid; grid-template-columns:96px 1fr; gap:24px;
+  padding:24px 0; border-top:1px solid var(--rule);
+}
+.post-item:first-child{border-top:none; padding-top:0}
+.post-item .when{font-family:var(--mono); font-size:12px; color:var(--ink-soft); padding-top:6px}
+.post-item h2{margin-bottom:6px}
+.post-item h2 a{text-decoration:none; border-bottom:1px solid transparent; transition:border-color .18s ease}
+.post-item h2 a:hover{border-bottom-color:var(--ink)}
+.post-item .excerpt{font-size:14.5px; color:var(--ink-soft); max-width:38em}
+.post-item .excerpt p{margin-bottom:0}
+.tags{margin-top:9px; display:flex; gap:12px; flex-wrap:wrap}
+.tags span{
+  font-family:var(--mono); font-size:10.5px; letter-spacing:.07em;
+  text-transform:uppercase; color:var(--accent);
+}
+
+/* 單篇文章 */
+.post-header{padding-bottom:34px; margin-bottom:34px; border-bottom:1px solid var(--rule)}
+.post-header .when{font-family:var(--mono); font-size:12px; letter-spacing:.05em; color:var(--ink-soft); margin-bottom:14px}
+.post-header h1{font-family:var(--serif); font-size:32px; font-weight:600; line-height:1.25; letter-spacing:-.01em; max-width:22em}
+
+/* 文章內文 */
+.prose{max-width:36em; font-family:var(--serif); font-size:17.5px; line-height:1.72}
+.prose p{max-width:none; margin-bottom:22px}
+.prose h2{font-size:22px; margin-top:44px; margin-bottom:14px}
+.prose h3{font-family:var(--serif); font-size:18px; font-weight:600; margin-top:32px; margin-bottom:10px}
+.prose a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--rule)}
+.prose a:hover{border-bottom-color:var(--accent)}
+.prose strong{font-weight:600}
+.prose ul,.prose ol{margin:0 0 22px 1.2em}
+.prose li{margin-bottom:8px}
+.prose img{max-width:100%; height:auto; display:block; margin:32px 0}
+.prose figure{margin:32px 0}
+.prose figcaption{font-family:var(--sans); font-size:13px; color:var(--ink-soft); margin-top:10px}
+.prose hr{border:none; border-top:1px solid var(--rule); margin:44px 0}
+.prose blockquote{
+  border-left:2px solid var(--warm); padding-left:20px; margin:26px 0;
+  color:var(--ink-soft);
+}
+.prose blockquote p:last-child{margin-bottom:0}
+.prose table{border-collapse:collapse; width:100%; font-family:var(--sans); font-size:14.5px; margin:28px 0}
+.prose th,.prose td{text-align:left; padding:9px 12px; border-bottom:1px solid var(--rule)}
+.prose th{font-family:var(--mono); font-size:11px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-soft)}
+
+/* 程式碼 */
+.prose code{
+  font-family:var(--mono); font-size:.82em;
+  background:rgba(47,95,99,.07); padding:2px 5px; border-radius:2px;
+}
+.prose pre{
+  background:#F2F0EB; border:1px solid var(--rule);
+  padding:18px 20px; overflow-x:auto; margin:28px 0;
+  font-size:13.5px; line-height:1.6;
+}
+.prose pre code{background:none; padding:0; font-size:inherit}
+
+/* Rouge 語法highlight（極簡，只分四類） */
+.highlight .c,.highlight .c1,.highlight .cm{color:#8A8F86; font-style:italic}
+.highlight .k,.highlight .kn,.highlight .kd{color:var(--accent); font-weight:500}
+.highlight .s,.highlight .s1,.highlight .s2{color:var(--warm)}
+.highlight .n,.highlight .nf,.highlight .nb{color:var(--ink)}
+.highlight .mi,.highlight .mf{color:var(--warm)}
+
+/* 返回連結 */
+.back{
+  display:inline-block; margin-top:64px; padding-top:26px; border-top:1px solid var(--rule);
+  font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent); text-decoration:none;
+}
+.back:hover{color:var(--ink)}
+
+.empty{color:var(--ink-soft); font-size:15px}
+
+
+/* ══════════════════════════════════════════════════
+   手機
+   ══════════════════════════════════════════════════ */
+@media (max-width:860px){
+  .wrap{grid-template-columns:1fr; gap:0; padding:0 22px}
+  .rail{position:static; height:auto; padding:56px 0 0}
+  nav{display:flex; flex-wrap:wrap; gap:0 20px; margin-top:28px}
+  nav a .num,nav a.active::before{display:none}
+  .nav-out{margin-top:14px; padding-top:14px; display:flex; gap:20px}
+  .rail-foot{display:none}
+  main{padding:48px 0 90px}
+  .lede{font-size:21px}
+  .pub,.row,.stack,.post-item{grid-template-columns:1fr; gap:4px}
+  .pub .yr,.row .when,.post-item .when{padding-top:0}
+  .stack{gap:14px}
+  .post-item{gap:8px}
+  .post-header h1{font-size:25px}
+  .prose{font-size:16.5px}
+}
